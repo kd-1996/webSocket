@@ -1,6 +1,6 @@
 package com.example.webSocket.webSocket.config;
 
-import com.example.webSocket.webSocket.mode.UserResponse;
+import com.example.webSocket.webSocket.model.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.SimpMessagingTemplate;

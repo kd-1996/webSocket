@@ -1,4 +1,4 @@
-package com.example.webSocket.webSocket.mode;
+package com.example.webSocket.webSocket.model;
 
 import lombok.Data;
 

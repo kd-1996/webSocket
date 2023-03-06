@@ -26,7 +26,11 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     /**
      * This is the webSocket which will be created for us. You can add multiple end points
      * Sock-js library to create webSockets
+     * WebSocket is just a communication protocol. He doesn't know How to send a message only to users  who are subscribed to
+     * a particular topic or how to send a message to a particular user.
+     * STOMP - Streaming text oriented Messaging Protocol.
+     * STOMP is simple text based protocol, it allows STOMP clients to talk with any message broker supporting the protocol.
+     * Spring provides default support for it but we can choose any other messaging Protocol such as RabitMQ or ActiveMQ.
      */
-
   }
 }

@@ -1,6 +1,7 @@
 package com.example.webSocket.webSocket.resource;
 
 import com.example.webSocket.webSocket.model.ChatMessage;
+import java.util.Objects;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -13,13 +14,19 @@ public class ChatController {
   /**
    * Look at the Import class of payLoad- This is not related with MVC.
    *
-   * @MessageMapping - This will help us to map same url from client to our Server.
+   * @MessageMapping - This will help us to map same url from client to our Server. This annotation
+   * ensures that if a message sent to /chat.register destination , the register method is called.
+   * PayLoad of message is bound to ChatMessage object.
+   * @SendTo The return value is broadcast to all subscribers of /topic/public as specified in SendTo
+   * annotation
    */
   @MessageMapping("/chat.register")
   @SendTo("/topic/public")
   public ChatMessage register(@Payload ChatMessage chatMessage,
-      SimpMessageHeaderAccessor headerAccessor) {
-    headerAccessor.getSessionAttributes().put("userName", chatMessage.getSender());
+      SimpMessageHeaderAccessor headerAccessor) throws InterruptedException {
+    Thread.sleep(1000);
+    Objects.requireNonNull(headerAccessor.getSessionAttributes())
+        .put("userName", chatMessage.getSender());
     return chatMessage;
   }
 

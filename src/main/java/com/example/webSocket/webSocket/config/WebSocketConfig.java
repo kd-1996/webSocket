@@ -21,6 +21,12 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 public class WebSocketConfig implements
     WebSocketMessageBrokerConfigurer {
 
+  /**
+   * @EnableWebSocketMessageBroker - enables webSocket message handling, backed by a message broker.
+   * enableSimpleBroker() -> enable simple memory based message broker to carry the message
+   * back to the client on destination prefix with /topic.
+   */
+
 
   @Override
   public void configureMessageBroker(MessageBrokerRegistry registry) {

@@ -5,12 +5,12 @@ import lombok.Data;
 @Data
 public class UserResponse {
 
-  String content;
+    String content;
 
-  public UserResponse(String content) {
-    this.content = content;
-  }
+    public UserResponse(String content) {
+        this.content = content;
+    }
 
-  public UserResponse() {
-  }
+    public UserResponse() {
+    }
 }

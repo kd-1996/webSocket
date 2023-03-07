@@ -11,11 +11,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 public class SchedulerConfig {
 
-  @Autowired
-  SimpMessagingTemplate template;
+    @Autowired
+    SimpMessagingTemplate template;
 
-  @Scheduled(fixedDelay = 5000)
-  public void sendAdHocMessages() {
-    template.convertAndSend("/topic/user", new UserResponse("Fixed delayed Scheduler"));
-  }
+    @Scheduled(fixedDelay = 5000)
+    public void sendAdHocMessages() {
+        template.convertAndSend("/topic/user", new UserResponse("Fixed delayed Scheduler"));
+    }
 }

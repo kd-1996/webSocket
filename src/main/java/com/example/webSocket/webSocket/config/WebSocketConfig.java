@@ -19,28 +19,28 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements
-    WebSocketMessageBrokerConfigurer {
+        WebSocketMessageBrokerConfigurer {
 
-  /**
-   * @EnableWebSocketMessageBroker - enables webSocket message handling, backed by a message broker.
-   * enableSimpleBroker() -> enable simple memory based message broker to carry the message
-   * back to the client on destination prefix with /topic.
-   */
+    /**
+     * @EnableWebSocketMessageBroker - enables webSocket message handling, backed by a message broker.
+     * enableSimpleBroker() -> enable simple memory based message broker to carry the message
+     * back to the client on destination prefix with /topic.
+     */
 
 
-  @Override
-  public void configureMessageBroker(MessageBrokerRegistry registry) {
-    registry.enableSimpleBroker("/topic");
-    registry.setApplicationDestinationPrefixes("/app");
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry registry) {
+        registry.enableSimpleBroker("/topic");
+        registry.setApplicationDestinationPrefixes("/app");
 
-    //Broker via which will be pushing messages inside message broker.
+        //Broker via which will be pushing messages inside message broker.
 
-  }
+    }
 
-  @Override
-  public void registerStompEndpoints(StompEndpointRegistry registry) {
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
 
-    registry.addEndpoint("/websocket-example").withSockJS();
-    //This is the webSocket which will be created for us. You can add multiple end points
-  }
+        registry.addEndpoint("/websocket-example").withSockJS();
+        //This is the webSocket which will be created for us. You can add multiple end points
+    }
 }
